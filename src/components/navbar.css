@@ -1,0 +1,292 @@
+/* ──────────────────────────────────────────────
+   Navbar – scroll-aware floating pill animation
+   ────────────────────────────────────────────── */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 8px 0;
+  /* border: 1px solid rgba(198, 123, 92, 0.18); */
+  transition:
+    padding 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    /* background 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), */
+    box-shadow 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Shrink top/bottom padding when scrolled */
+.navbar--scrolled {
+  padding: 8px 0;
+  /* border: 1px solid #666; */
+  /* border-radius: 60px; */
+}
+
+/* ── Inner container (the pill target) ── */
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Start full-width, matching .container */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px; 
+  border-radius: 60px;
+  background:rgba(247, 243, 236, 0.82) ;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1.5px solid rgb(198, 123, 92);
+  transition:
+    max-width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+    padding 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-radius 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    background 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    backdrop-filter 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    -webkit-backdrop-filter 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    gap 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Scrolled → pill state */
+.navbar--scrolled .navbar__inner {
+  max-width: 860px;
+  /* padding: 10px 28px; */
+  border-radius: 60px;
+  background: rgba(247, 243, 236, 0.82);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow:
+    0 4px 24px rgba(60, 42, 33, 0.08),
+    0 1.5px 6px rgba(60, 42, 33, 0.05);
+  border: 1.5px solid rgb(198, 123, 92);
+}
+
+/* ── Logo ── */
+
+.navbar__logo {
+  display: flex;
+  align-items: baseline;
+  /* gap: 6px; */
+  flex-shrink: 0;
+}
+
+.navbar__logo-text {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  transition: font-size 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbar--scrolled .navbar__logo-text {
+  font-size: 2.2rem;
+}
+
+.navbar__logo-divider {
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.navbar__logo-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brown);
+  transition: font-size 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav_logo{
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+
+.navbar--scrolled .navbar__logo-sub {
+  font-size: 0.6rem;
+}
+
+/* ── Nav links ── */
+
+.navbar__links {
+  display: flex;
+  gap: 36px;
+  transition: gap 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbar--scrolled .navbar__links {
+  gap: 22px;
+}
+
+.navbar__link {
+  font-size: 1.0rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  position: relative;
+  padding: 4px 0;
+  transition:
+    color var(--transition),
+    font-size 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbar--scrolled .navbar__link {
+  font-size: 1.0rem;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width var(--transition);
+}
+
+.navbar__link:hover {
+  color: var(--navy);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+/* ── Actions / CTA ── */
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.navbar__cta {
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  transition:
+    all var(--transition),
+    padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    font-size 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbar--scrolled .navbar__cta {
+  padding: 8px 18px;
+  font-size: 0.82rem;
+}
+
+.navbar__hamburger {
+  display: none;
+  color: var(--navy);
+  padding: 4px;
+}
+
+/* ── Overlay ── */
+
+.navbar__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+/* ──────────────────────────────────────────────
+   Tablet breakpoint (769–1024px)
+   ────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .navbar--scrolled .navbar__inner {
+    max-width: 720px;
+  }
+
+  .navbar__links {
+    gap: 24px;
+  }
+
+  .navbar--scrolled .navbar__links {
+    gap: 16px;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Mobile breakpoint (≤768px)
+   – Pill effect disabled; mobile menu preserved
+   ────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* On mobile the scrolled pill collapses to a simple bar */
+  .navbar--scrolled .navbar__inner {
+    max-width: 100%;
+    border-radius: 0;
+    padding: 8px 16px;
+    background: rgba(247, 243, 236, 0.94);
+    box-shadow: 0 1px 0 rgba(60, 42, 33, 0.06);
+    border-color: rgba(198, 123, 92, 0.22);
+  }
+
+  .navbar__inner {
+    padding: 0 16px;
+  }
+
+  .navbar__links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--cream);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    z-index: -1;
+  }
+
+  .navbar__links--open {
+    transform: translateX(0);
+  }
+
+  .navbar__link {
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Keep link size constant on mobile regardless of scroll */
+  .navbar--scrolled .navbar__link {
+    font-size: 1.4rem;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__links .navbar__cta-mobile {
+    display: inline-flex;
+  }
+
+  /* Reset logo sizing on mobile */
+  .navbar--scrolled .navbar__logo-text {
+    font-size: 1.3rem;
+  }
+
+  .navbar--scrolled .navbar__logo-sub {
+    font-size: 0.65rem;
+  }
+}

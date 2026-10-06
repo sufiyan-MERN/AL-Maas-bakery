@@ -1,0 +1,83 @@
+.contact {
+  padding: 100px 0;
+  background: var(--cream);
+}
+
+.contact .section-label {
+  display: block;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.contact .section-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--navy);
+  margin-bottom: 48px;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact__item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact__item h4 {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.contact__item p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.contact__item a {
+  color: var(--brown);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.contact__item a:hover {
+  border-color: var(--gold);
+}
+
+.contact__web-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.contact__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
