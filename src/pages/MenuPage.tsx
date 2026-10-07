@@ -13,7 +13,7 @@ export default function MenuPage() {
   return (
     <main className="menu-page">
       <MenuHero />
-      {/* <FeaturedSection /> */}
+      <FeaturedSection />
       <Menu />
       <OrderCTASection />
     </main>
