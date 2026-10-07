@@ -1,14 +1,15 @@
 .product-card {
   background: var(--white);
-  border: 1px solid rgba(198, 123, 92, 0.15);
+  border: 1px solid rgba(198, 123, 92, 0.25);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .product-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-hover);
+  border-color: var(--gold);
 }
 
 .product-card__image {
@@ -64,7 +65,7 @@
   padding: 50px 0 50px;
   border: 2px solid brown;
   margin: 50px;
-  border-radius: 20%;
+  border-radius: 5%;
 }
 
 .featured .section-header {

@@ -141,15 +141,16 @@
 .featured__card {
   background: var(--cream);
   border-radius: var(--radius);
-  border: 1px solid rgba(198, 123, 92, 0.12);
+  border: 1px solid rgba(198, 123, 92, 0.25);
   overflow: hidden;
   position: relative;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .featured__card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-hover);
+  border-color: var(--gold);
 }
 
 .featured__badge {

@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
     <section className="why" id="why">
       <div className="container">
         <span className="section-label">WHY US</span>
-        <h2 className="section-title">WHY CHOOSE AVYAN</h2>
+        <h2 className="section-title">WHY CHOOSE Al Maas</h2>
         <div className="why__grid">
           {features.map((f, index) => (
             <div key={f.title} className={`why__card why__card--${index + 1}`}>

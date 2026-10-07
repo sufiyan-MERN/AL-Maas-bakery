@@ -49,7 +49,7 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar__inner">
         <Link to="/" className="navbar__logo" onClick={() => setOpen(false)}>
-          <img className='nav_logo' src="https://ik.imagekit.io/sufiyanImages/new_20logo.jpeg" alt="logo" />
+          <img className='nav_logo' src="https://ik.imagekit.io/sufiyanImages/almaas%20bakery.png" alt="logo" />
         </Link>
 
         <nav className={`navbar__links${open ? ' navbar__links--open' : ''}`}>

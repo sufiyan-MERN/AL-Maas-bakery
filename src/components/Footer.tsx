@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <h3 className="footer__name">AVYAN BAKEHOUSE</h3>
+            <h3 className="footer__name">AL MAAS BAKERY</h3>
             <p className="footer__tag">Artisanal Bakery & Cafe</p>
           </div>
 
@@ -70,13 +70,13 @@ export default function Footer() {
           </div>
         </div>
         <div className='footer__img' >
-          <img src="https://ik.imagekit.io/sufiyanImages/Warm%20Artisanal%20Bakehouse%20Caf%C3%A9.png" alt="" />
+          <img src="https://ik.imagekit.io/sufiyanImages/Al%20Maas%20Bakery_%20Warm%20Rustic%20Caf%C3%A9.png" alt="" />
         </div>
         <div className="footer__bottom">
           <p className="footer__tagline">
             FRESHLY BAKED · ARTISAN CRAFTED · PREMIUM INGREDIENTS
           </p>
-          <p className="footer__copy">© 2026 Avyan Bakehouse. All rights reserved.</p>
+          <p className="footer__copy">© 2026 Al Maas Bakery. All rights reserved.</p>
         </div>
       </div>
     </footer>

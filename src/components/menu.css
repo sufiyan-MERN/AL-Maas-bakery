@@ -193,15 +193,16 @@
 
 .menu__product {
   background: var(--white);
-  border: 1px solid rgba(198, 123, 92, 0.12);
+  border: 1px solid rgba(198, 123, 92, 0.25);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .menu__product:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
+  border-color: var(--gold);
 }
 
 .menu__product-img {

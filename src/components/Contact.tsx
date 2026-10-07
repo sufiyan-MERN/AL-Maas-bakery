@@ -3,7 +3,7 @@ import './contact.css'
 
 const address = 'No.92, S B Elegance, Manorayana Palya, Sultan Palya Main Road, Bengaluru - 560032'
 const whatsappNumbers = ['+913212342282', '+914635311990', '+917488040309']
-const instagram = '@avyanbakehouse'
+const instagram = '@alMaasBakery'
 // const website = 'www.avyanbakehouse.in'
 
 export default function Contact() {
@@ -11,7 +11,7 @@ export default function Contact() {
     <section className="contact" id="contact">
       <div className="container">
         <span className="section-label">VISIT US</span>
-        <h2 className="section-title">VISIT AVYAN BAKEHOUSE</h2>
+        <h2 className="section-title">AL MAAS BAKERY</h2>
 
         <div className="contact__grid">
           <div className="contact__info">
@@ -72,7 +72,7 @@ export default function Contact() {
               <MessageCircle size={18} /> WhatsApp Us
             </a>
             <a
-              href={`https://www.instagram.com/${instagram.replace('@', '')}`}
+              // href={`https://www.instagram.com/${instagram.replace('@', '')}`}
               target="_blank"
               rel="noreferrer"
               className="btn btn--outline"
