@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import Menu from '../components/Menu'
-import { featuredProducts } from '../data/products'
-import { useCart } from '../context/CartContext'
-import { Plus, ChevronRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import './MenuPage.css'
 
 export default function MenuPage() {
@@ -13,7 +11,6 @@ export default function MenuPage() {
   return (
     <main className="menu-page">
       <MenuHero />
-      <FeaturedSection />
       <Menu />
       <OrderCTASection />
     </main>
@@ -36,47 +33,6 @@ function MenuHero() {
         <p className="menu-page__subtitle">
           Freshly baked breads, pastries, cakes and handcrafted treats made for every moment.
         </p>
-      </div>
-    </section>
-  )
-}
-
-function FeaturedSection() {
-  const { addToCart } = useCart()
-  return (
-    <section className="featured" id="featured">
-      <div className="container">
-        <div className="featured__header">
-          <span className="section-label">CUSTOMER FAVOURITES</span>
-          <h2 className="section-title">Our Signature Treats</h2>
-          <p className="featured__sub">The most-loved creations, baked fresh every single day.</p>
-        </div>
-        <div className="featured__grid">
-          {featuredProducts.map((product) => (
-            <div key={product.id} className="featured__card">
-              <div className="featured__badge">BEST SELLER</div>
-              <div className="featured__img">
-                <img src={product.image} alt={product.name} loading="lazy" />
-              </div>
-              <div className="featured__body">
-                <h3 className="featured__name">{product.name}</h3>
-                <p className="featured__desc">{product.description}</p>
-                <div className="featured__footer">
-                  <div className="featured__price-block">
-                    <span className="featured__price">₹{product.price}</span>
-                    <span className="featured__weight">{product.weight}</span>
-                  </div>
-                  <button
-                    className="btn btn--sm btn--primary featured__btn"
-                    onClick={() => addToCart(product)}
-                  >
-                    <Plus size={16} /> Order Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )

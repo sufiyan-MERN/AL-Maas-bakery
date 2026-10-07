@@ -28,82 +28,51 @@
   font-size: 1rem;
 }
 
-.menu__controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 16px;
-  justify-content: space-between;
-  margin-bottom: 40px;
+/* ── Two-column layout: menu on the left, filter box on the right ── */
+
+.menu__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 48px;
+  align-items: start;
 }
 
-.menu__filter {
+.menu__content {
+  min-width: 0;
+}
+
+.menu__sidebar {
+  position: sticky;
+  top: 110px;
+}
+
+.menu__sidebar-box {
+  background: var(--white);
+  border: 1px solid rgba(198, 123, 92, 0.3);
+  border-radius: var(--radius);
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 28px;
+  box-shadow: var(--shadow-hover);
 }
 
-.menu__filter-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.menu__filter-select-wrap {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.menu__filter-select {
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 10px 40px 10px 16px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(198, 123, 92, 0.35);
-  background: var(--white);
-  color: var(--text);
-  font-size: 0.92rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: border-color var(--transition), box-shadow var(--transition);
-  min-width: 220px;
-}
-
-.menu__filter-select:focus {
-  outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(198, 123, 92, 0.12);
-}
-
-.menu__filter-arrow {
-  position: absolute;
-  right: 14px;
-  pointer-events: none;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.menu__search {
+.menu__sidebar-search {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: var(--white);
+  gap: 10px;
+  background: var(--cream);
   border: 1px solid rgba(198, 123, 92, 0.25);
   border-radius: var(--radius-sm);
-  padding: 10px 16px;
-  min-width: 220px;
+  padding: 10px 14px;
   transition: border-color var(--transition);
 }
 
-.menu__search:focus-within {
+.menu__sidebar-search:focus-within {
   border-color: var(--gold);
 }
 
-.menu__search input {
+.menu__sidebar-search input {
   border: none;
   outline: none;
   background: transparent;
@@ -112,43 +81,94 @@
   color: var(--text);
 }
 
-.menu__search input::placeholder {
+.menu__sidebar-search input::placeholder {
   color: var(--text-muted);
 }
 
-.menu__sort-wrap {
-  position: relative;
+.menu__sidebar-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
 }
 
-.menu__sort-dropdown {
-  position: absolute;
-  right: 0;
-  top: 48px;
-  background: var(--white);
-  border: 1px solid rgba(198, 123, 92, 0.25);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-hover);
-  min-width: 200px;
-  overflow: hidden;
-  z-index: 50;
-  animation: fadeInUp 0.2s ease;
+.menu__category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.menu__sort-dropdown button {
-  display: block;
+.menu__category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   width: 100%;
-  text-align: left;
-  padding: 12px 18px;
-  font-size: 0.88rem;
+  padding: 9px 12px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
   color: var(--text);
-  transition: background var(--transition);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition), color var(--transition);
 }
 
-.menu__sort-dropdown button:hover,
-.menu__sort-dropdown button.active {
+.menu__category-btn:hover {
+  background: var(--cream);
+}
+
+.menu__category-btn.active {
+  background: var(--gold);
+  color: var(--white);
+  font-weight: 600;
+}
+
+.menu__category-count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(198, 123, 92, 0.12);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.menu__category-btn.active .menu__category-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+}
+
+.menu__sort-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.menu__sort-option {
+  width: 100%;
+  padding: 9px 12px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition), color var(--transition);
+}
+
+.menu__sort-option:hover {
+  background: var(--cream);
+}
+
+.menu__sort-option.active {
   background: var(--cream);
   color: var(--navy);
   font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--gold);
 }
 
 .menu__empty {
@@ -193,7 +213,7 @@
 
 .menu__product {
   background: var(--white);
-  border: 1px solid rgba(198, 123, 92, 0.25);
+  border: 1px double brown;
   border-radius: var(--radius);
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
@@ -202,6 +222,7 @@
 .menu__product:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
+  border: 1px solid rgba(198, 123, 92, 0.25);
   border-color: var(--gold);
 }
 
@@ -214,11 +235,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  padding: 10px;
+  border-radius: 10%;
   transition: transform 0.5s ease;
 }
 
 .menu__product:hover .menu__product-img img {
-  transform: scale(1.05);
+  transform: scale(1.13);
 }
 
 .menu__product-body {
@@ -253,7 +276,7 @@
   margin-bottom: 14px;
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   -webkit-line-orient: vertical;
   overflow: hidden;
 }
@@ -270,18 +293,23 @@
   color: var(--navy);
 }
 
+@media (max-width: 1024px) {
+  .menu__layout {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 32px;
+  }
+}
+
 @media (max-width: 768px) {
-  .menu__controls {
-    flex-direction: column;
-    align-items: stretch;
+  .menu__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
-  .menu__filter-select {
-    min-width: 100%;
+  .menu__sidebar {
+    position: static;
+    order: -1;
   }
-  .menu__search {
-    min-width: 100%;
-  }
-  .menu__sort-wrap {
-    align-self: flex-end;
+  .menu__sidebar-box {
+    gap: 20px;
   }
 }

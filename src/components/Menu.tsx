@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { Search, SlidersHorizontal, Plus } from 'lucide-react'
+import { Search, Plus } from 'lucide-react'
 import { products } from '../data/products'
 import type { Product, Category } from '../data/types'
 import { useCart } from '../context/CartContext'
@@ -50,8 +50,15 @@ export default function Menu() {
   const [active, setActive] = useState<Category | 'all'>('all')
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState<Sort>('default')
-  const [showSort, setShowSort] = useState(false)
   const { addToCart } = useCart()
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: products.length }
+    products.forEach((p) => {
+      counts[p.category] = (counts[p.category] || 0) + 1
+    })
+    return counts
+  }, [])
 
   const filtered = useMemo(() => {
     let list: Product[] = products
@@ -95,95 +102,93 @@ export default function Menu() {
           Explore our handcrafted selection of breads, pastries, cakes, cookies and more.
         </p>
 
-        <div className="menu__controls">
-          <div className="menu__filter">
-            <label className="menu__filter-label" htmlFor="category-filter">Category</label>
-            <div className="menu__filter-select-wrap">
-              <select
-                id="category-filter"
-                className="menu__filter-select"
-                value={active}
-                onChange={(e) => setActive(e.target.value as Category | 'all')}
-              >
-                {categories.map((cat) => (
-                  <option key={cat.key} value={cat.key}>
-                    {cat.label}
-                  </option>
+        <div className="menu__layout">
+          <div className="menu__content">
+            {filtered.length === 0 ? (
+              <div className="menu__empty">
+                <p>No items found. Try adjusting your search or filters.</p>
+              </div>
+            ) : sections ? (
+              <div className="menu__sections">
+                {sections.map((section) => (
+                  <div key={section.category} className="menu__section" id={`section-${section.category}`}>
+                    <div className="menu__section-header">
+                      <h3 className="menu__section-title">{section.label.toUpperCase()}</h3>
+                      <span className="menu__section-sub">{section.sub}</span>
+                    </div>
+                    <div className="menu__grid">
+                      {section.items.map((product) => (
+                        <MenuCard key={product.id} product={product} onAdd={addToCart} />
+                      ))}
+                    </div>
+                  </div>
                 ))}
-              </select>
-              <span className="menu__filter-arrow">▾</span>
-            </div>
-          </div>
-
-          <div className="menu__search">
-            <Search size={18} color="var(--text-muted)" />
-            <input
-              type="text"
-              placeholder="Search breads, cakes, cookies, pastries..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-          </div>
-
-          <div className="menu__sort-wrap">
-            <button
-              className="btn btn--sm btn--outline menu__sort-btn"
-              onClick={() => setShowSort((v) => !v)}
-            >
-              <SlidersHorizontal size={16} /> Sort
-            </button>
-            {showSort && (
-              <div className="menu__sort-dropdown">
-                <button
-                  className={sort === 'default' ? 'active' : ''}
-                  onClick={() => setSort('default')}
-                >
-                  Featured
-                </button>
-                <button
-                  className={sort === 'price-asc' ? 'active' : ''}
-                  onClick={() => setSort('price-asc')}
-                >
-                  Price: Low to High
-                </button>
-                <button
-                  className={sort === 'price-desc' ? 'active' : ''}
-                  onClick={() => setSort('price-desc')}
-                >
-                  Price: High to Low
-                </button>
+              </div>
+            ) : (
+              <div className="menu__grid">
+                {filtered.map((product) => (
+                  <MenuCard key={product.id} product={product} onAdd={addToCart} />
+                ))}
               </div>
             )}
           </div>
-        </div>
 
-        {filtered.length === 0 ? (
-          <div className="menu__empty">
-            <p>No items found. Try adjusting your search or filters.</p>
-          </div>
-        ) : sections ? (
-          <div className="menu__sections">
-            {sections.map((section) => (
-              <div key={section.category} className="menu__section" id={`section-${section.category}`}>
-                <div className="menu__section-header">
-                  <h3 className="menu__section-title">{section.label.toUpperCase()}</h3>
-                  <span className="menu__section-sub">{section.sub}</span>
-                </div>
-                <div className="menu__grid">
-                  {section.items.map((product) => (
-                    <MenuCard key={product.id} product={product} onAdd={addToCart} />
+          <aside className="menu__sidebar">
+            <div className="menu__sidebar-box">
+              <div className="menu__sidebar-search">
+                <Search size={16} color="var(--text-muted)" />
+                <input
+                  type="text"
+                  placeholder="Search menu..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+              </div>
+
+              <div className="menu__sidebar-section">
+                <h4 className="menu__sidebar-title">Categories</h4>
+                <div className="menu__category-list">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat.key}
+                      className={`menu__category-btn ${active === cat.key ? 'active' : ''}`}
+                      onClick={() => setActive(cat.key)}
+                    >
+                      <span className="menu__category-name">{cat.label}</span>
+                      <span className="menu__category-count">
+                        {categoryCounts[cat.key] || 0}
+                      </span>
+                    </button>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="menu__grid">
-            {filtered.map((product) => (
-              <MenuCard key={product.id} product={product} onAdd={addToCart} />
-            ))}
-          </div>
-        )}
+
+              <div className="menu__sidebar-section">
+                <h4 className="menu__sidebar-title">Sort By</h4>
+                <div className="menu__sort-list">
+                  <button
+                    className={`menu__sort-option ${sort === 'default' ? 'active' : ''}`}
+                    onClick={() => setSort('default')}
+                  >
+                    Featured
+                  </button>
+                  <button
+                    className={`menu__sort-option ${sort === 'price-asc' ? 'active' : ''}`}
+                    onClick={() => setSort('price-asc')}
+                  >
+                    Price: Low to High
+                  </button>
+                  <button
+                    className={`menu__sort-option ${sort === 'price-desc' ? 'active' : ''}`}
+                    onClick={() => setSort('price-desc')}
+                  >
+                    Price: High to Low
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
   )

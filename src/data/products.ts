@@ -18,7 +18,7 @@ export const products: Product[] = [
     description: 'Whole-wheat sourdough slow-fermented for 18 hours.',
     price: 210,
     weight: '550g',
-    image: 'https://images.unsplash.com/photo-1549931319-a545dd7b9e7e?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/atta-sourdough-bread-6.jpg',
   },
   {
     id: 'artisan-3',
@@ -27,7 +27,7 @@ export const products: Product[] = [
     description: 'Hearty multigrain sourdough packed with seeds and grains.',
     price: 220,
     weight: '550g',
-    image: 'https://images.unsplash.com/photo-1585476644321-c9702222383c?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/BreadsSEEDEDMULTIGRAINSOURDOUGH_image2_2048x2048.jpg',
   },
   {
     id: 'artisan-4',
@@ -36,7 +36,7 @@ export const products: Product[] = [
     description: 'Classic whole-wheat sourdough with a tangy, complex crumb.',
     price: 210,
     weight: '550g',
-    image: 'https://images.unsplash.com/photo-1573140247632-f8fd74997d5a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/whole-wheat-sourdough-bread-slices-wooden-board.jpg',
   },
   {
     id: 'artisan-5',
@@ -45,7 +45,7 @@ export const products: Product[] = [
     description: 'Olive-studded sourdough infused with fresh rosemary.',
     price: 220,
     weight: '550g',
-    image: 'https://images.unsplash.com/photo-1550127186-56124f97a37f?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/Focaccia-with-Olives-and-Rosemary-4.webp',
   },
   {
     id: 'artisan-6',
@@ -54,7 +54,7 @@ export const products: Product[] = [
     description: 'Spicy jalapeño sourdough laced with aged cheddar.',
     price: 230,
     weight: '550g',
-    image: 'https://images.unsplash.com/photo-1608198093002-ad4e0054a97f?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/jalapeno-cheddar-bagels-39.jpg',
   },
   {
     id: 'artisan-7',
@@ -63,7 +63,7 @@ export const products: Product[] = [
     description: 'Cloud-soft milk bread with a fine, fluffy crumb.',
     price: 180,
     weight: '500g',
-    image: 'https://images.unsplash.com/photo-1517433676047-8f27e92d000b?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/japanese-milk-bread-loaf-small.webp',
   },
   {
     id: 'artisan-8',
@@ -72,7 +72,7 @@ export const products: Product[] = [
     description: 'Ultra-soft sandwich loaf perfect for gourmet toast.',
     price: 180,
     weight: '500g',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/Bread-Box327JBWeb-696x522.jpg',
   },
   {
     id: 'artisan-9',
@@ -81,7 +81,7 @@ export const products: Product[] = [
     description: 'Classic brown bread with a hearty, malty flavour.',
     price: 150,
     weight: '450g',
-    image: 'https://images.unsplash.com/photo-1549931319-a545dd7b9e7e?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/whole-wheat-sandwich-bread-2.jpg',
   },
   {
     id: 'artisan-10',
@@ -90,7 +90,7 @@ export const products: Product[] = [
     description: 'Wholesome multigrain loaf with flax, sunflower and oats.',
     price: 160,
     weight: '450g',
-    image: 'https://images.unsplash.com/photo-1585476644321-c9702222383c?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/whole-grain-seeded-bread-soft-crumb.jpg',
   },
   {
     id: 'artisan-11',
@@ -99,7 +99,7 @@ export const products: Product[] = [
     description: 'Rich, buttery brioche with a tender, golden crumb.',
     price: 180,
     weight: '450g',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/59941168.avif',
   },
   {
     id: 'artisan-12',
@@ -108,7 +108,7 @@ export const products: Product[] = [
     description: 'Traditional crisp baguette with a light, airy interior.',
     price: 130,
     weight: '300g',
-    image: 'https://images.unsplash.com/photo-1549931319-a545dd7b9e7e?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/5ee9a414-c420-4bbb-8bf8-f43680be451e.jpg',
   },
   {
     id: 'artisan-13',
@@ -117,7 +117,7 @@ export const products: Product[] = [
     description: 'Swirled brioche babka oozing with Nutella.',
     price: 120,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(1).jpg',
   },
   {
     id: 'artisan-14',
@@ -126,7 +126,7 @@ export const products: Product[] = [
     description: 'Dense, chewy sourdough bagel with a glossy crust.',
     price: 100,
     weight: '160g',
-    image: 'https://images.unsplash.com/photo-1585476644321-c9702222383c?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(2).jpg',
   },
   {
     id: 'artisan-15',
@@ -135,7 +135,7 @@ export const products: Product[] = [
     description: 'Spicy chilli cheese folded into a sourdough bagel.',
     price: 120,
     weight: '160g',
-    image: 'https://images.unsplash.com/photo-1585476644321-c9702222383c?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/jalapeno-cheddar-sourdough-bagels-recipe-1.jpg',
   },
   {
     id: 'artisan-16',
@@ -144,7 +144,7 @@ export const products: Product[] = [
     description: 'Seeded multigrain sourdough bagel — nutty and chewy.',
     price: 120,
     weight: '160g',
-    image: 'https://images.unsplash.com/photo-1585476644321-c9702222383c?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/1784201545-WhatsApp%20Image%202026-07-13%20at%2015.32.49.jpg',
   },
 
   // ── BUN ──
@@ -155,7 +155,7 @@ export const products: Product[] = [
     description: 'Buttery, pillowy-soft brioche with a golden, glossy crust.',
     price: 35,
     weight: '80g',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/brioche-buns-seeds.jpg',
   },
   {
     id: 'bun-2',
@@ -164,7 +164,7 @@ export const products: Product[] = [
     description: 'Fluffy bun filled with velvety chocolate cream.',
     price: 90,
     weight: '120g',
-    image: 'https://images.unsplash.com/photo-1608198093002-ad4e0054a97f?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(3).jpg',
   },
   {
     id: 'bun-3',
@@ -173,7 +173,7 @@ export const products: Product[] = [
     description: 'Soft bun filled with smooth, fragrant vanilla cream.',
     price: 80,
     weight: '120g',
-    image: 'https://images.unsplash.com/photo-1517433676047-8f27e92d000b?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(4).jpg',
   },
   {
     id: 'bun-4',
@@ -182,7 +182,7 @@ export const products: Product[] = [
     description: 'Cloud-light bun filled with fresh strawberry cream.',
     price: 90,
     weight: '120g',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(5).jpg',
   },
   {
     id: 'bun-5',
@@ -191,7 +191,7 @@ export const products: Product[] = [
     description: 'Italian classic with a crisp crust and airy, open crumb.',
     price: 80,
     weight: '70g',
-    image: 'https://images.unsplash.com/photo-1549931319-a545dd7b9e7e?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(6).jpg',
   },
   {
     id: 'bun-6',
@@ -200,7 +200,7 @@ export const products: Product[] = [
     description: 'French baguette infused with garlic butter and herbs.',
     price: 120,
     weight: '180g',
-    image: 'https://images.unsplash.com/photo-1585476644321-c9702222383c?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(7).jpg',
   },
   {
     id: 'bun-7',
@@ -209,7 +209,7 @@ export const products: Product[] = [
     description: 'Olive oil-rich flatbread topped with rosemary and sea salt.',
     price: 120,
     weight: '120g',
-    image: 'https://images.unsplash.com/photo-1573140247632-f8fd74997d5a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(8).jpg',
   },
   {
     id: 'bun-8',
@@ -218,7 +218,7 @@ export const products: Product[] = [
     description: 'Soft bun swirled with luscious Nutella and hazelnuts.',
     price: 120,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(9).jpg',
   },
   {
     id: 'bun-9',
@@ -227,7 +227,7 @@ export const products: Product[] = [
     description: 'Brioche dough studded with dark chocolate chips.',
     price: 80,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1608198093002-ad4e0054a97f?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/main.jpg',
   },
   {
     id: 'bun-10',
@@ -236,7 +236,7 @@ export const products: Product[] = [
     description: 'Soft, fluffy Korean-style steamed buns.',
     price: 150,
     weight: '120g',
-    image: 'https://images.unsplash.com/photo-1517433676047-8f27e92d000b?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(10).jpg',
   },
   {
     id: 'bun-11',
@@ -245,7 +245,7 @@ export const products: Product[] = [
     description: 'Delicate choux pastry buns with a crisp shell.',
     price: 160,
     weight: '120g',
-    image: 'https://images.unsplash.com/photo-1609127102567-8a9a21dc27d8?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(11).jpg',
   },
   {
     id: 'bun-12',
@@ -254,7 +254,7 @@ export const products: Product[] = [
     description: 'Warm, gooey cinnamon swirl with cream cheese frosting.',
     price: 130,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1609127102567-8a9a21dc27d8?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(12).jpg',
   },
 
   // ── PUFF ──
@@ -265,7 +265,7 @@ export const products: Product[] = [
     description: 'Flaky, golden puff pastry stuffed with spiced mixed vegetables.',
     price: 50,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(13).jpg',
   },
   {
     id: 'puff-2',
@@ -274,7 +274,7 @@ export const products: Product[] = [
     description: 'Crisp puff pastry filled with tender, seasoned chicken.',
     price: 70,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(14).jpg',
   },
   {
     id: 'puff-3',
@@ -283,7 +283,7 @@ export const products: Product[] = [
     description: 'Flaky puff pastry packed with spiced paneer filling.',
     price: 70,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(15).jpg',
   },
 
   // ── VIENNOISERIE ──
@@ -303,7 +303,7 @@ export const products: Product[] = [
     description: 'Buttery croissant filled with almond cream and topped with almonds.',
     price: 200,
     weight: '130g',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/chocolate-almond-croissants-DSC_4863-1x1-1200.jpg',
   },
   {
     id: 'viennoiserie-3',
@@ -312,7 +312,7 @@ export const products: Product[] = [
     description: 'Laminated pastry rolled with dark chocolate batons.',
     price: 180,
     weight: '90g',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(16).jpg',
   },
   {
     id: 'viennoiserie-4',
@@ -321,7 +321,7 @@ export const products: Product[] = [
     description: 'Crispy, caramelised New York-style pastry rolls.',
     price: 200,
     weight: '110g',
-    image: 'https://images.unsplash.com/photo-1609127102567-8a9a21dc27d8?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(17).jpg',
   },
   {
     id: 'viennoiserie-5',
@@ -330,7 +330,7 @@ export const products: Product[] = [
     description: 'Savory croissant stuffed with seasoned chicken.',
     price: 220,
     weight: '130g',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(18).jpg',
   },
   {
     id: 'viennoiserie-6',
@@ -339,7 +339,7 @@ export const products: Product[] = [
     description: 'Buttery croissant filled with spiced paneer.',
     price: 220,
     weight: '130g',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(19).jpg',
   },
 
   // ── SPREADS ──
@@ -359,7 +359,7 @@ export const products: Product[] = [
     description: 'Fiery homemade hot sauce with bold chilli flavours.',
     price: 250,
     weight: '200g',
-    image: 'https://images.unsplash.com/photo-1472476440506-5a8910badf9a?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/618SfvX0tzL._AC_UF350,350_QL80_.jpg',
   },
 
   // ── MUFFIN ──
@@ -379,7 +379,7 @@ export const products: Product[] = [
     description: 'Sweet strawberry muffin with real fruit pieces.',
     price: 99,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/jumbo-strawberry-muffins.jpg',
   },
   {
     id: 'muffin-3',
@@ -388,7 +388,7 @@ export const products: Product[] = [
     description: 'Wholesome apple and oat muffin with a hint of cinnamon.',
     price: 99,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(20).jpg',
   },
   {
     id: 'muffin-4',
@@ -397,7 +397,7 @@ export const products: Product[] = [
     description: 'Rich date and walnut muffin with caramelised notes.',
     price: 120,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(21).jpg',
   },
   {
     id: 'muffin-5',
@@ -406,7 +406,7 @@ export const products: Product[] = [
     description: 'Moist chocolate muffin loaded with melty chocolate chips.',
     price: 99,
     weight: '100g',
-    image: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(22).jpg',
   },
 
   // ── TEA CAKE ──
@@ -417,7 +417,7 @@ export const products: Product[] = [
     description: 'Moist banana loaf speckled with toasted walnuts.',
     price: 250,
     weight: '250g',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/rn-image_picker_lib_temp_13405cc9-6e06-4166-8f42-ea23912e99ce.webp',
   },
   {
     id: 'teacake-2',
@@ -426,7 +426,7 @@ export const products: Product[] = [
     description: 'Warm carrot cake with plump raisins and spices.',
     price: 250,
     weight: '250g',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(23).jpg',
   },
   {
     id: 'teacake-3',
@@ -435,7 +435,7 @@ export const products: Product[] = [
     description: 'Bright, zesty lemon cake with a tender crumb.',
     price: 250,
     weight: '250g',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(24).jpg',
   },
   {
     id: 'teacake-4',
@@ -444,7 +444,7 @@ export const products: Product[] = [
     description: 'Aromatic coffee cake with crunchy walnut pieces.',
     price: 250,
     weight: '250g',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/Coffee-Walnut-Cake-9-1.webp',
   },
 
   // ── COOKIE ──
@@ -455,7 +455,7 @@ export const products: Product[] = [
     description: 'A classic, crisp-edged, chewy-centred cookie loaded with chocolate chunks.',
     price: 100,
     weight: '40g',
-    image: 'https://images.unsplash.com/photo-1499636138143-bd649f7a0d32?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(25).jpg',
   },
   {
     id: 'cookie-2',
@@ -473,7 +473,7 @@ export const products: Product[] = [
     description: 'Cocoa-kissed cookie with a subtle tang and white chocolate drizzle.',
     price: 100,
     weight: '40g',
-    image: 'https://images.unsplash.com/photo-1579306194872-64d3b7bac4c2?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(26).jpg',
   },
   {
     id: 'cookie-4',
@@ -482,7 +482,7 @@ export const products: Product[] = [
     description: 'Hearty oat cookie with plump raisins and warm spices.',
     price: 100,
     weight: '40g',
-    image: 'https://images.unsplash.com/photo-1586569578328-9a25bdb9a6bc?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/vegan-oatmeal-raisin-cookies-1.jpg',
   },
   {
     id: 'cookie-5',
@@ -491,7 +491,7 @@ export const products: Product[] = [
     description: 'Thin, crisp chocolate brittle topped with sea salt flakes.',
     price: 120,
     weight: '40g',
-    image: 'https://images.unsplash.com/photo-1607330289024-1535c6b4e1c1?w=600&q=80',
+    image: 'https://ik.imagekit.io/sufiyanImages/images(27).jpg',
   },
 
   // ── CUPCAKE ──

@@ -91,7 +91,8 @@
   height: 160px;
 }
 .hero__img-card:nth-child(4) {
-  height: 180px;
+  grid-column: span 2;
+  height: 250px;
 }
 
 .hero__decor {

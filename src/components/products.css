@@ -1,6 +1,6 @@
 .product-card {
   background: var(--white);
-  border: 1px solid rgba(198, 123, 92, 0.25);
+  border: 3px solid rgb(224, 149, 117);
   border-radius: var(--radius);
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
@@ -18,6 +18,8 @@
 }
 
 .product-card__image img {
+  padding: 10px;
+  border-radius: 10%;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -25,7 +27,7 @@
 }
 
 .product-card:hover .product-card__image img {
-  transform: scale(1.06);
+  transform: scale(1.12);
 }
 
 .product-card__body {
@@ -49,6 +51,7 @@
   overflow: hidden;
 }
 
+
 .product-card__footer {
   display: flex;
   align-items: center;
@@ -64,6 +67,7 @@
 .featured {
   padding: 50px 0 50px;
   border: 2px solid brown;
+  border-bottom: 2px solid brown;
   margin: 50px;
   border-radius: 5%;
 }
@@ -80,7 +84,7 @@
   color: var(--gold);
   font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  
 }
 
 .featured .section-title {

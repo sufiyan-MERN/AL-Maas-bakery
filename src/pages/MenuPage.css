@@ -117,7 +117,7 @@
 .featured {
   padding: 80px 0 100px;
   background: var(--white);
-  border-bottom: 1px solid rgba(198, 123, 92, 0.12);
+  /* border-bottom: 1px solid rgba(198, 123, 92, 0.12); */
 }
 
 .featured__header {
@@ -141,7 +141,7 @@
 .featured__card {
   background: var(--cream);
   border-radius: var(--radius);
-  border: 1px solid rgba(198, 123, 92, 0.25);
+  /* border: 1px solid rgba(198, 123, 92, 0.25); */
   overflow: hidden;
   position: relative;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);

@@ -3,11 +3,12 @@ import { ArrowRight, ShoppingBag } from 'lucide-react'
 import './hero.css'
 
 const heroImages = [
-  'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80',
+  'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600&q=80',
   'https://ik.imagekit.io/sufiyanImages/images_q=tbn:ANd9GcQBSk2guGFa-F_EgLRWHm41-jB9fUEDfdKASMlldV7UPw&s=10',
   'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80',
-  'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600&q=80',
+  'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80',
 ]
+
 
 export default function Hero() {
   return (
