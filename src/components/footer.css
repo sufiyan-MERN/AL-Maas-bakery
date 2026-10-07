@@ -2,6 +2,11 @@
   background: var(--navy);
   color: var(--white);
   padding: 64px 0 32px;
+  /* background-image: url("https://ik.imagekit.io/sufiyanImages/Warm%20Artisanal%20Bakehouse%20Caf%C3%A9.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment:local; */
 }
 
 .footer__top {
@@ -56,7 +61,16 @@
 }
 
 .footer__bottom {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
+  padding-top: 20px;
+}
+
+
+
+.footer__img img{
+  width: 100%;
 }
 
 .footer__tagline {

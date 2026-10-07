@@ -69,7 +69,9 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
+        <div className='footer__img' >
+          <img src="https://ik.imagekit.io/sufiyanImages/Warm%20Artisanal%20Bakehouse%20Caf%C3%A9.png" alt="" />
+        </div>
         <div className="footer__bottom">
           <p className="footer__tagline">
             FRESHLY BAKED · ARTISAN CRAFTED · PREMIUM INGREDIENTS

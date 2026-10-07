@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Hero from '../components/Hero'
-import About from '../components/About'
+// import About from '../components/About'
 import FeaturedProducts from '../components/FeaturedProducts'
 import Services from '../components/Services'
 import WhyChooseUs from '../components/WhyChooseUs'
@@ -30,7 +30,7 @@ export default function HomePage() {
 
       <WhyChooseUs />
       <Services />
-      <About />
+      {/* <About /> */}
       <Contact />
     </main>
   )

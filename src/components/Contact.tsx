@@ -4,7 +4,7 @@ import './contact.css'
 const address = 'No.92, S B Elegance, Manorayana Palya, Sultan Palya Main Road, Bengaluru - 560032'
 const whatsappNumbers = ['+913212342282', '+914635311990', '+917488040309']
 const instagram = '@avyanbakehouse'
-const website = 'www.avyanbakehouse.in'
+// const website = 'www.avyanbakehouse.in'
 
 export default function Contact() {
   return (
@@ -46,11 +46,11 @@ export default function Contact() {
             </div>
 
             <div className="contact__item">
-              <span className="contact__web-icon">🌐</span>
+              {/* <span className="contact__web-icon">🌐</span>
               <div>
                 <h4>Website</h4>
                 <p>{website}</p>
-              </div>
+              </div> */}
             </div>
           </div>
 
