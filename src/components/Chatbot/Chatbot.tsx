@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { MessageCircle, X, Send } from 'lucide-react'
 import { getBotResponse, bakeryInfo } from './chatbotRules'
 import './chatbot.css'
@@ -14,7 +14,7 @@ interface ChatMessage {
 const WELCOME_MESSAGE: ChatMessage = {
   id: 0,
   sender: 'bot',
-  text: 'Hi! 👋 Welcome to Avyan Bakehouse. How can we help you?',
+  text: 'Hi! 👋 Welcome to Al Maas Bakery. How can we help you?',
   quickReplies: ['Menu', 'Opening Hours', 'Order Now', 'Contact Us'],
 }
 
@@ -28,6 +28,11 @@ export default function Chatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const idRef = useRef(1)
   const navigate = useNavigate()
+  const location = useLocation()
+
+  if (location.pathname.startsWith('/admin')) {
+    return null
+  }
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })

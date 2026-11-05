@@ -1,0 +1,255 @@
+.cart-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 24, 16, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeIn 0.25s ease;
+}
+
+.cart-drawer {
+  width: 100%;
+  max-width: 440px;
+  height: 100%;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 32px rgba(60, 42, 33, 0.2);
+  animation: slideDrawer 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDrawer {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.cart-drawer__header {
+  padding: 20px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(198, 123, 92, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-drawer__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-drawer__title-wrap h3 {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin: 0;
+}
+
+.cart-drawer__count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.cart-drawer__close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.cart-drawer__close:hover {
+  background: rgba(60, 42, 33, 0.08);
+  color: var(--navy);
+}
+
+.cart-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+}
+
+.cart-drawer__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  gap: 14px;
+}
+
+.cart-drawer__empty-icon {
+  font-size: 3.5rem;
+}
+
+.cart-drawer__empty h4 {
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin: 0;
+}
+
+.cart-drawer__empty p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.cart-drawer__items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cart-drawer__item {
+  display: flex;
+  gap: 14px;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(198, 123, 92, 0.15);
+  box-shadow: 0 2px 8px rgba(60, 42, 33, 0.04);
+}
+
+.cart-drawer__item-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cart-drawer__item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-drawer__item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cart-drawer__item-name {
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cart-drawer__item-remove {
+  background: transparent;
+  border: none;
+  color: #c62828;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.cart-drawer__item-remove:hover {
+  opacity: 1;
+}
+
+.cart-drawer__item-price {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cart-drawer__item-qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.cart-drawer__item-qty button {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--cream-dark);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cart-drawer__item-qty button:hover {
+  background: var(--gold);
+  color: #ffffff;
+}
+
+.cart-drawer__item-qty span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 18px;
+  text-align: center;
+}
+
+.cart-drawer__item-total {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy);
+}
+
+.cart-drawer__footer {
+  padding: 20px 24px;
+  background: #ffffff;
+  border-top: 1px solid rgba(198, 123, 92, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-drawer__subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.cart-drawer__subtotal-amount {
+  font-size: 1.35rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.cart-drawer__delivery-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.cart-drawer__checkout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  font-size: 1rem;
+}
+

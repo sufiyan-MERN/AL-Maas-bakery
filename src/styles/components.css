@@ -54,6 +54,36 @@
   font-size: 0.82rem;
 }
 
+.btn--danger {
+  background: #c62828;
+  color: var(--white);
+  border: 1px solid #c62828;
+}
+
+.btn--danger:hover {
+  background: #b71c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(198, 40, 40, 0.25);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge--pending { background: #fef3c7; color: #92400e; }
+.badge--confirmed { background: #dbeafe; color: #1e40af; }
+.badge--preparing { background: #ede9fe; color: #5b21b6; }
+.badge--out_for_delivery { background: #fee2e2; color: #991b1b; }
+.badge--delivered { background: #d1fae5; color: #065f46; }
+.badge--cancelled { background: #f3f4f6; color: #4b5563; }
+
 .section-label {
   display: block;
   font-size: 0.75rem;

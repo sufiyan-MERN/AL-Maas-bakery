@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ShoppingBag } from 'lucide-react'
+import { useCart } from '../context/CartContext'
 import './navbar.css'
 
 interface NavLink {
@@ -22,6 +23,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
+  const { totalItems, openCart } = useCart()
+
+  // Hide customer navbar on admin routes
+  if (location.pathname.startsWith('/admin')) {
+    return null
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
@@ -80,6 +87,14 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar__actions">
+          <button
+            className="navbar__cart-btn"
+            onClick={openCart}
+            aria-label={`Shopping cart with ${totalItems} items`}
+          >
+            <ShoppingBag size={20} />
+            {totalItems > 0 && <span className="navbar__cart-badge">{totalItems}</span>}
+          </button>
           <Link to="/menu" className="btn btn--primary navbar__cta">
             Order Now
           </Link>

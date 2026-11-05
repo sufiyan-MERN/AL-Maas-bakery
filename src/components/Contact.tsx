@@ -55,14 +55,15 @@ export default function Contact() {
           </div>
 
           <div className="contact__actions">
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+            {/* <a
+              href={`https://www.google.com/maps/place/Avyan+Bakehouse/@13.0279242,77.5282725,13z/data=!4m7!3m6!1s0x3bae173710d3430f:0x94fa4d9a4e4237e2!8m2!3d13.0279242!4d77.6044902!15sChBhdnlhbiBiYWtlIGhvdXNlWhIiEGF2eWFuIGJha2UgaG91c2WSAQZiYWtlcnngAQA!16s%2Fg%2F11nb9y8wpx?entry=tts&g_ep=EgoyMDI2MDkzMC4wIPu8ASoASAFQAw%3D%3D&skid=7649b4b9-2187-4f73-9ff2-dd2a5e8155d1 `}
               target="_blank"
               rel="noreferrer"
               className="btn btn--primary"
             >
               Get Directions
-            </a>
+            </a> */}
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62193.946447341725!2d77.5282725!3d13.0279242!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae173710d3430f%3A0x94fa4d9a4e4237e2!2sAvyan%20Bakehouse!5e0!3m2!1sen!2sin!4v1793880487926!5m2!1sen!2sin" width="600" height="200" ></iframe>
             <a
               href={`https://wa.me/${whatsappNumbers[0].replace('+', '')}`}
               target="_blank"

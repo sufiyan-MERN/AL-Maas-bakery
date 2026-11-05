@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react'
 import { Search, Plus } from 'lucide-react'
-import { products } from '../data/products'
 import type { Product, Category } from '../data/types'
 import { useCart } from '../context/CartContext'
+import { useProducts } from '../context/ProductContext'
 import './menu.css'
 
 type Sort = 'default' | 'price-asc' | 'price-desc'
@@ -47,6 +47,7 @@ const categoryOrder: Category[] = [
 ]
 
 export default function Menu() {
+  const { products } = useProducts()
   const [active, setActive] = useState<Category | 'all'>('all')
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState<Sort>('default')
@@ -58,7 +59,7 @@ export default function Menu() {
       counts[p.category] = (counts[p.category] || 0) + 1
     })
     return counts
-  }, [])
+  }, [products])
 
   const filtered = useMemo(() => {
     let list: Product[] = products
@@ -91,7 +92,7 @@ export default function Menu() {
         items: products.filter((p) => p.category === cat),
       }))
       .filter((s) => s.items.length > 0)
-  }, [active, query])
+  }, [active, query, products])
 
   return (
     <section className="menu">
@@ -201,10 +202,23 @@ function MenuCard({
   product: Product
   onAdd: (p: Product) => void
 }) {
+  const isAvailable = product.isAvailable !== false
+  const effectivePrice = product.discountPrice ?? product.price
+
   return (
-    <div className="menu__product">
+    <div className={`menu__product ${!isAvailable ? 'menu__product--out-of-stock' : ''}`}>
       <div className="menu__product-img">
         <img src={product.image} alt={product.name} loading="lazy" />
+        {!isAvailable && (
+          <div className="menu__product-badge-overlay">
+            <span>OUT OF STOCK</span>
+          </div>
+        )}
+        {product.discountPrice && isAvailable && (
+          <div className="menu__product-discount-badge">
+            <span>SALE</span>
+          </div>
+        )}
       </div>
       <div className="menu__product-body">
         <div className="menu__product-top">
@@ -213,9 +227,24 @@ function MenuCard({
         </div>
         <p className="menu__product-desc">{product.description}</p>
         <div className="menu__product-footer">
-          <span className="menu__product-price">₹{product.price}</span>
-          <button className="btn btn--sm btn--primary" onClick={() => onAdd(product)}>
-            <Plus size={16} /> Add to Cart
+          <div className="menu__product-price-box">
+            <span className="menu__product-price">₹{effectivePrice}</span>
+            {product.discountPrice && (
+              <span className="menu__product-old-price">₹{product.price}</span>
+            )}
+          </div>
+          <button
+            className={`btn btn--sm ${isAvailable ? 'btn--primary' : 'btn--disabled'}`}
+            disabled={!isAvailable}
+            onClick={() => onAdd(product)}
+          >
+            {isAvailable ? (
+              <>
+                <Plus size={16} /> Add to Cart
+              </>
+            ) : (
+              'Out of Stock'
+            )}
           </button>
         </div>
       </div>

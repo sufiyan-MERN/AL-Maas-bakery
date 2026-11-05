@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { MessageCircle, Globe, Camera } from 'lucide-react'
 import './footer.css'
 
@@ -11,6 +11,11 @@ const routeLinks: Record<string, string> = {
 const footerLinks = ['Home', 'About', 'Menu', 'Services', 'Contact']
 
 export default function Footer() {
+  const location = useLocation()
+
+  if (location.pathname.startsWith('/admin')) {
+    return null
+  }
   return (
     <footer className="footer">
       <div className="container">
@@ -20,7 +25,7 @@ export default function Footer() {
             <p className="footer__tag">Artisanal Bakery & Cafe</p>
           </div>
 
-          <nav className="footer__nav">
+          {/* <nav className="footer__nav">
             {footerLinks.map((link) =>
               routeLinks[link] ? (
                 <Link
@@ -40,7 +45,7 @@ export default function Footer() {
                 </a>
               )
             )}
-          </nav>
+          </nav> */}
 
           <div className="footer__social">
             <a

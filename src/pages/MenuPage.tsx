@@ -1,9 +1,13 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Menu from '../components/Menu'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, ShoppingBag, ArrowRight } from 'lucide-react'
+import { useCart } from '../context/CartContext'
 import './MenuPage.css'
 
 export default function MenuPage() {
+  const { totalItems, subtotal, openCart } = useCart()
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
@@ -13,6 +17,28 @@ export default function MenuPage() {
       <MenuHero />
       <Menu />
       <OrderCTASection />
+
+      {totalItems > 0 && (
+        <div className="floating-cart-bar">
+          <div className="container floating-cart-bar__inner">
+            <div className="floating-cart-bar__info" onClick={openCart} role="button" tabIndex={0}>
+              <div className="floating-cart-bar__icon">
+                <ShoppingBag size={20} />
+                <span className="floating-cart-bar__badge">{totalItems}</span>
+              </div>
+              <div className="floating-cart-bar__text">
+                <span className="floating-cart-bar__items">
+                  {totalItems} {totalItems === 1 ? 'item' : 'items'} in cart
+                </span>
+                <span className="floating-cart-bar__total">₹{subtotal}</span>
+              </div>
+            </div>
+            <Link to="/checkout" className="btn btn--gold floating-cart-bar__btn">
+              Proceed to Checkout <ArrowRight size={18} />
+            </Link>
+          </div>
+        </div>
+      )}
     </main>
   )
 }
