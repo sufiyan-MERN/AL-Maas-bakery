@@ -3,9 +3,17 @@ import { Search, Plus } from 'lucide-react'
 import type { Product, Category } from '../data/types'
 import { useCart } from '../context/CartContext'
 import { useProducts } from '../context/ProductContext'
+import FilterPanel, { type FilterState, type SortOption } from './FilterPanel'
 import './menu.css'
+import './FilterPanel.css'
 
-type Sort = 'default' | 'price-asc' | 'price-desc'
+const FILTER_CATEGORIES: Category[] = [
+  'cookie',
+  'bun',
+  'brownie',
+  'cupcake',
+  'puff',
+]
 
 const categories: { key: Category | 'all'; label: string; sub: string }[] = [
   { key: 'all', label: 'All', sub: '' },
@@ -46,53 +54,91 @@ const categoryOrder: Category[] = [
   'celebration-cakes',
 ]
 
+function computeRating(product: Product): number {
+  let rating = 3.5
+  if (product.category === 'celebration-cakes' || product.category === 'cheese-cake') rating += 1
+  if (product.category === 'macaron' || product.category === 'pastry') rating += 0.5
+  if (product.discountPrice && product.discountPrice < product.price) rating += 0.3
+  if (product.price > 500) rating += 0.2
+  return Math.min(5, Math.max(1, rating + (Math.sin(product.price * 0.01) * 0.5)))
+}
+
 export default function Menu() {
-  const { products } = useProducts()
-  const [active, setActive] = useState<Category | 'all'>('all')
+  const { products: allProducts } = useProducts()
   const [query, setQuery] = useState('')
-  const [sort, setSort] = useState<Sort>('default')
+  const [filters, setFilters] = useState<FilterState>({
+    categories: [],
+    sort: 'default',
+    availability: 'all',
+    rating: false,
+  })
   const { addToCart } = useCart()
 
+  const productsWithRating = useMemo(() =>
+    allProducts.map(p => ({ ...p, rating: computeRating(p) }))
+  , [allProducts])
+
   const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = { all: products.length }
-    products.forEach((p) => {
+    const counts: Record<string, number> = { all: productsWithRating.length }
+    productsWithRating.forEach((p) => {
       counts[p.category] = (counts[p.category] || 0) + 1
     })
     return counts
-  }, [products])
+  }, [productsWithRating])
+
+  const handleFilterChange = (newFilters: FilterState) => {
+    setFilters(newFilters)
+  }
 
   const filtered = useMemo(() => {
-    let list: Product[] = products
-
-    if (active !== 'all') {
-      list = list.filter((p) => p.category === active)
-    }
+    let list: (Product & { rating: number })[] = productsWithRating
 
     if (query.trim()) {
       const q = query.toLowerCase().trim()
       list = list.filter((p) => p.name.toLowerCase().includes(q))
     }
 
-    if (sort === 'price-asc') {
+    if (filters.categories.length > 0) {
+      list = list.filter((p) => filters.categories.includes(p.category))
+    }
+
+    if (filters.availability === 'available') {
+      list = list.filter((p) => p.isAvailable !== false)
+    } else if (filters.availability === 'out-of-stock') {
+      list = list.filter((p) => p.isAvailable === false)
+    }
+
+    if (filters.rating) {
+      list = list.filter((p) => (p.rating ?? 0) >= 4)
+    }
+
+    if (filters.sort === 'price-asc') {
       list = [...list].sort((a, b) => a.price - b.price)
-    } else if (sort === 'price-desc') {
+    } else if (filters.sort === 'price-desc') {
       list = [...list].sort((a, b) => b.price - a.price)
+    } else if (filters.sort === 'rating-desc') {
+      list = [...list].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))
     }
 
     return list
-  }, [active, query, sort])
+  }, [query, filters, productsWithRating])
 
   const sections = useMemo(() => {
-    if (active !== 'all' || query.trim()) return null
+    if (filters.categories.length > 0 || query.trim() || filters.availability !== 'all' || filters.rating) return null
     return categoryOrder
       .map((cat) => ({
         category: cat,
         label: categories.find((c) => c.key === cat)!.label,
         sub: categories.find((c) => c.key === cat)!.sub,
-        items: products.filter((p) => p.category === cat),
+        items: allProducts.filter((p) => p.category === cat),
       }))
       .filter((s) => s.items.length > 0)
-  }, [active, query, products])
+  }, [filters.categories, query, filters.availability, filters.rating, allProducts])
+
+  const hasActiveFilters = filters.categories.length > 0 ||
+    filters.sort !== 'default' ||
+    filters.availability !== 'all' ||
+    filters.rating
 
   return (
     <section className="menu">
@@ -102,6 +148,23 @@ export default function Menu() {
         <p className="menu__subtitle">
           Explore our handcrafted selection of breads, pastries, cakes, cookies and more.
         </p>
+
+        <div className="menu__filters">
+          <div className="menu__search-box">
+            <Search size={18} color="var(--text-muted)" />
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+          <FilterPanel
+            products={productsWithRating}
+            onFilterChange={handleFilterChange}
+            initialFilters={filters}
+          />
+        </div>
 
         <div className="menu__layout">
           <div className="menu__content">
@@ -136,24 +199,21 @@ export default function Menu() {
 
           <aside className="menu__sidebar">
             <div className="menu__sidebar-box">
-              <div className="menu__sidebar-search">
-                <Search size={16} color="var(--text-muted)" />
-                <input
-                  type="text"
-                  placeholder="Search menu..."
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-              </div>
-
               <div className="menu__sidebar-section">
-                <h4 className="menu__sidebar-title">Categories</h4>
+                <h4 className="menu__sidebar-title">All Categories</h4>
                 <div className="menu__category-list">
                   {categories.map((cat) => (
                     <button
                       key={cat.key}
-                      className={`menu__category-btn ${active === cat.key ? 'active' : ''}`}
-                      onClick={() => setActive(cat.key)}
+                      className={`menu__category-btn ${filtered.length > 0 && sections === null ? '' : ''}`}
+                      onClick={() => {
+                        setFilters(prev => ({
+                          ...prev,
+                          categories: prev.categories.includes(cat.key as Category)
+                            ? prev.categories.filter(c => c !== cat.key)
+                            : [...prev.categories, cat.key as Category]
+                        }))
+                      }}
                     >
                       <span className="menu__category-name">{cat.label}</span>
                       <span className="menu__category-count">
@@ -161,30 +221,6 @@ export default function Menu() {
                       </span>
                     </button>
                   ))}
-                </div>
-              </div>
-
-              <div className="menu__sidebar-section">
-                <h4 className="menu__sidebar-title">Sort By</h4>
-                <div className="menu__sort-list">
-                  <button
-                    className={`menu__sort-option ${sort === 'default' ? 'active' : ''}`}
-                    onClick={() => setSort('default')}
-                  >
-                    Featured
-                  </button>
-                  <button
-                    className={`menu__sort-option ${sort === 'price-asc' ? 'active' : ''}`}
-                    onClick={() => setSort('price-asc')}
-                  >
-                    Price: Low to High
-                  </button>
-                  <button
-                    className={`menu__sort-option ${sort === 'price-desc' ? 'active' : ''}`}
-                    onClick={() => setSort('price-desc')}
-                  >
-                    Price: High to Low
-                  </button>
                 </div>
               </div>
             </div>

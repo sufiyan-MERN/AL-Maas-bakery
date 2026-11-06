@@ -594,6 +594,7 @@ export default function CheckoutPage() {
                     {isDetectingLocation ? 'Detecting Location...' : '📍 Detect My Location'}
                   </button>
                 </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62193.946447341725!2d77.5282725!3d13.0279242!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae173710d3430f%3A0x94fa4d9a4e4237e2!2sAvyan%20Bakehouse!5e0!3m2!1sen!2sin!4v1793880487926!5m2!1sen!2sin" width="750" height="200" ></iframe>
 
                 {/* Google places / Address lookup input */}
                 <div className="form-group">

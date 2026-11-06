@@ -1,0 +1,188 @@
+/* ── Navbar – scroll-aware floating pill animation ── */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 8px 0;
+  transition:
+    padding 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbarScrolled {
+  padding: 8px 0;
+}
+
+.navbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  border-radius: 60px;
+  background: rgba(247, 243, 236, 0.82);
+  box-shadow: none;
+  border: 1.5px solid rgb(198, 123, 92);
+  transition:
+    max-width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+    padding 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-radius 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    background 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbarScrolled .navbarInner,
+.navbarScrolled.navbarInner {
+  max-width: 860px;
+  border-radius: 60px;
+  background: rgba(247, 243, 236, 0.82);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow: 0 4px 24px rgba(60, 42, 33, 0.08), 0 1.5px 6px rgba(60, 42, 33, 0.05);
+  border: 1.5px solid rgb(198, 123, 92);
+}
+
+.navLogo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.navbarLogo {
+  display: flex;
+  align-items: baseline;
+  flex-shrink: 0;
+}
+
+.navbarLinks {
+  display: flex;
+  gap: 36px;
+  transition: gap 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbarLink {
+  font-size: 1.0rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  position: relative;
+  padding: 4px 0;
+  transition: color var(--transition);
+}
+
+.navbarLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width var(--transition);
+}
+
+.navbarLink:hover { color: var(--navy); }
+.navbarLink:hover::after { width: 100%; }
+
+.navbarActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cartBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: var(--navy);
+  transition: background var(--transition);
+}
+
+.cartBtn:hover {
+  background: rgba(60, 42, 33, 0.08);
+}
+
+.cartBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbarHamburger {
+  display: none;
+  color: var(--navy);
+  padding: 4px;
+}
+
+.navbarOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+@media (max-width: 1024px) {
+  .navbarLinks { gap: 24px; }
+}
+
+@media (max-width: 768px) {
+  .navbarInner {
+    padding: 0 16px;
+  }
+
+  .navbarLinks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--cream);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    z-index: -1;
+  }
+
+  .navbarLinksOpen {
+    transform: translateX(0);
+  }
+
+  .navbarLink {
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .navbarHamburger {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .navbar__cta {
+    display: none;
+  }
+}
+

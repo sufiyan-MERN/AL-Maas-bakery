@@ -1,0 +1,138 @@
+.menu {
+  padding: 60px 0 100px;
+  background: var(--cream);
+}
+
+.menu .section-label {
+  display: block;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.menu .section-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.menu__subtitle {
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 36px;
+  font-size: 1rem;
+}
+
+.menu__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 36px;
+  align-items: start;
+}
+
+.menu__content {
+  min-width: 0;
+}
+
+.menu__sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.menu__sidebar-box {
+  background: var(--white);
+  border: 1px solid rgba(198, 123, 92, 0.3);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: var(--shadow);
+}
+
+.menu__sidebar-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--cream);
+  border: 1px solid rgba(198, 123, 92, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+
+.menu__sidebar-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+  width: 100%;
+  color: var(--text);
+}
+
+.menu__sidebar-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.menu__category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu__category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.menu__category-btn:hover {
+  background: rgba(198, 123, 92, 0.1);
+  color: var(--navy);
+}
+
+.menu__category-btn--active {
+  background: var(--navy) !important;
+  color: var(--white) !important;
+  font-weight: 600;
+}
+
+.menu__category-count {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.menu__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .menu__layout {
+    grid-template-columns: 1fr;
+  }
+  .menu__sidebar {
+    position: static;
+  }
+}
+
